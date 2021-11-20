@@ -1,0 +1,25 @@
+/*colors*/
+$green: #3bc8aa;
+$yellow: #ffeccf;
+$purple: #31234e;
+$pink: #ffc6c6;
+$black: #1e1e1e;
+$orange: #ff551a;
+
+/*fonts*/
+$titleFont: "PT Serif";
+$bodyFont: "Work Sans";
+
+body {
+  color: $black;
+  font-family: $bodyFont;
+}
+
+h1 {
+  font-family: $titleFont;
+}
+
+h2 {
+  color: $green;
+  font-family: $titleFont;
+}
