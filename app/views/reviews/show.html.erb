@@ -1,20 +1,27 @@
 <% content_for :page_title, @review.title %>
 <h1><%= @review.title %></h1>
-<h2><%= @review.restaurant %></h2>
 <div class="review-header">
-    <span class="score">Score: <%= @review.score %>/10</span><br>
-    <% if @review.ambiance.present? %>
-        <span class="ambiance">Ambiance: <%= @review.ambiance %></span><br>
-    <% end %>
-    <% if @review.price.present? %>
-        <span class="price">Price: <%= @review.price %></span><br>
-    <% end %>
-    <% if @review.cuisine.present? %>
-        <span class="cuisine">Cuisine: <%= @review.cuisine %></span><br>
-    <% end %>
+    <div class="restaurant">
+        <h2><%= @review.restaurant %></h2>
+        <span class="address"><%= @review.address %></span>
+    </div>
+    <div class="review-meta">
+        <span class="score">Score: <%= @review.score %>/10</span><br>
+        <% if @review.ambiance.present? %>
+            <span class="ambiance">Ambiance: <%= @review.ambiance %></span><br>
+        <% end %>
+        <% if @review.price.present? %>
+            <span class="price">Price: <%= @review.price %></span><br>
+        <% end %>
+        <% if @review.cuisine.present? %>
+            <span class="cuisine">Cuisine: <%= @review.cuisine %></span><br>
+        <% end %>
+    </div>
+
 </div>
 <p class="body"><%= simple_format @review.body %></p>
 <div class="actions">
     <%= link_to "Edit this review", edit_review_path(@review) %><br>
-    <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>
+    <%= link_to "Back to list", root_path %>
 </div>

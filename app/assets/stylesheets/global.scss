@@ -5,6 +5,7 @@ $purple: #31234e;
 $pink: #ffc6c6;
 $black: #1e1e1e;
 $orange: #ff551a;
+$grey: #999999;
 
 /*fonts*/
 $titleFont: "PT Serif";
@@ -61,7 +62,7 @@ main {
 
 footer {
   font-size: 14px;
-  color: #999999;
+  color: $grey;
 }
 
 label {
@@ -112,9 +113,5 @@ nav.filters {
     min-width: 200px;
     font-size: 14px;
     padding: 4px 5px;
-  }
-
-  nav.filters a {
-    margin-right: 10px;
   }
 }
