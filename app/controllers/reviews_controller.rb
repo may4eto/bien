@@ -1,7 +1,15 @@
 class ReviewsController < ApplicationController
     def index
     #this is the list page for the reviews
-        @reviews = Review.all
+        @price = params[:price]
+        @cuisine = params[:cuisine]
+        @reviews = Review.all 
+        if @price.present?
+            @reviews = @reviews.where(price: @price)
+        end
+        if @cuisine.present?
+            @reviews = @reviews.where(cuisine: @cuisine)
+        end
     end
     def new
     #the form for adding a new review
@@ -44,7 +52,7 @@ class ReviewsController < ApplicationController
         end
     end
     def form_params
-        params.require(:review).permit(:title, :restaurant, :body, :score, :ambiance)
+        params.require(:review).permit(:title, :restaurant, :body, :score, :ambiance, :price, :cuisine)
     end 
 
 end

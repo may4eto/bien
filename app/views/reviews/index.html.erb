@@ -1,3 +1,14 @@
+<nav class="filters">
+    <%= link_to "All restaurants", root_path %>
+    <%= link_to "$", root_path(price: 1, cuisine: @cuisine) %>
+    <%= link_to "$$", root_path(price: 2, cuisine: @cuisine) %>
+    <%= link_to "$$$", root_path(price: 3, cuisine: @cuisine) %>
+    <%= link_to "$$$$", root_path(price: 4, cuisine: @cuisine) %>
+    <%= link_to "Italian", root_path(cuisine: "Italian", price: @price) %>
+    <%= link_to "Burgers", root_path(cuisine: "Burgers", price: @price) %>
+    <%= link_to "Lebanese", root_path(cuisine: "Lebanese", price: @price) %>
+
+</nav>
 <% @reviews.each do |review| %>
     <div class="review">
         <%= link_to review.title, review_path(review) %>

@@ -18,7 +18,15 @@
     </div>
     <div>
         <%= f.label :body %>
-        <%= f.text_area :body, minlength: @min_length, id: "review_text" %>
+        <%= f.text_area :body %>
+    </div>
+    <div>
+        <%= f.label :cuisine %>
+        <%= f.text_field :cuisine %>
+    </div>
+    <div>
+        <%= f.label :price %>
+        <%= f.number_field :price %>
     </div>
     <div>
         <%= f.label :score %>
