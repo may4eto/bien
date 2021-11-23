@@ -13,12 +13,20 @@
         <%= f.text_field :title %>
     </div>
     <div>
+        <%= f.label :restaurant %>
+        <%= f.text_field :restaurant%>
+    </div>
+    <div>
         <%= f.label :body %>
-        <%= f.text_area :body, minlength: @min_length, id: "review_text" %>s
+        <%= f.text_area :body, minlength: @min_length, id: "review_text" %>
     </div>
     <div>
         <%= f.label :score %>
         <%= f.number_field :score %>
+    </div>
+    <div>
+        <%= f.label :ambiance %>
+        <%= f.text_field :ambiance %>
     </div>
     <%= f.submit "Save review" %>
 <% end %>

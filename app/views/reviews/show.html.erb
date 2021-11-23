@@ -1,5 +1,10 @@
+<% content_for :page_title, @review.title %>
 <h1><%= @review.title %></h1>
+<h2><%= @review.restaurant %></h2>
 <p class="score">Score: <%= @review.score %>/10</p>
+<% if @review.ambiance.present? %>
+    <p class="ambiance">Ambiance: <%= @review.ambiance %>
+<% end %>
 <p class="body"><%= simple_format @review.body %></p>
 <div class="actions">
     <%= link_to "Edit this review", edit_review_path(@review) %>
