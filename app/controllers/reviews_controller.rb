@@ -6,14 +6,17 @@ class ReviewsController < ApplicationController
     def new
     #the form for adding a new review
         @review = Review.new
+        @min_length = Review.validators_on( :body ).first.options[:minimum]
     end
     def create 
     #take info from the form and add it to the database
     @review = Review.new(form_params)
-    #save to the database
-    @review.save
-    #redirect to homepage
-    redirect_to root_path
+    # we want to check  if the model can be saved 
+        if @review.save
+            redirect_to root_path
+        else
+            render "new"
+        end
     end 
     def show
     #individual review page
@@ -34,8 +37,11 @@ class ReviewsController < ApplicationController
     def update 
     #saves the updated version in the database
         @review = Review.find(params[:id])
-        @review.update(form_params)
-        redirect_to review_path(@review)
+        if @review.update(form_params)
+            redirect_to review_path(@review)
+        else
+            render "edit"
+        end
     end
     def form_params
         params.require(:review).permit(:title, :body, :score)

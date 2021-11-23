@@ -1,18 +1,24 @@
 <%= form_for @review do |f| %>
-    <fieldset>
-    <legend>Review:</legend>
-        <div>
-            <%= f.label :title %>
-            <%= f.text_field :title %>
+    <% if @review.errors.any? %>
+        <div class="errors">
+            <ul>
+                <% @review.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                <% end %>
+            </ul>
         </div>
-        <div>
-            <%= f.label :body %>
-            <%= f.text_area :body %>
-        </div>
-        <div>
-            <%= f.label :score %>
-            <%= f.number_field :score %>
-        </div>
-        <%= f.submit "Save review" %>
-    </fieldset>
+    <% end %>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <div>
+        <%= f.label :body %>
+        <%= f.text_area :body, minlength: @min_length, id: "review_text" %>s
+    </div>
+    <div>
+        <%= f.label :score %>
+        <%= f.number_field :score %>
+    </div>
+    <%= f.submit "Save review" %>
 <% end %>
