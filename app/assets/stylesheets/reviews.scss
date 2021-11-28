@@ -1,8 +1,8 @@
 // Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-
 @import "../stylesheets/global.scss";
+//@import "../stylesheets/application.scss";
 
 div.restaurant h2 {
   margin: 0px;
@@ -22,4 +22,15 @@ div.review-header {
   margin-bottom: 24px;
   border: solid 2px $green;
   padding: 16px;
+}
+
+.comment {
+  border-bottom: solid 2px $cream;
+  font-size: 14px;
+  padding-bottom: 8px;
+
+  span {
+    font-size: 12px;
+    color: $green;
+  }
 }
