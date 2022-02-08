@@ -1,8 +1,24 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user
+    before_action :current_user
 
-    def current_user   
-        User.find_by(id: session[:user_id])
+    #add in the method to use in the views
+    helper_method :is_logged_in?
+
+    def current_user
+        if is_logged_in?
+            @current_user = User.find(session[:user_id])
+        else
+            @current_user = nil
+        end   
     end
-
+    #check login status
+    def check_login 
+        unless is_logged_in?
+            redirect_to new_session_path
+        end
+    end
+    #is the person logged in
+    def is_logged_in? 
+        session[:user_id].present?
+    end 
 end

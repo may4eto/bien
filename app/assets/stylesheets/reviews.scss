@@ -4,6 +4,16 @@
 @import "../stylesheets/global.scss";
 //@import "../stylesheets/application.scss";
 
+h1 {
+  line-height: 1.2;
+  margin: 0;
+}
+
+p.author {
+  font-style: italic;
+  margin-top: 8px;
+}
+
 div.restaurant h2 {
   margin: 0px;
 }
@@ -16,7 +26,7 @@ span.address {
 
 div.review-header {
   display: flex;
-  max-width: 400px;
+  max-width: 600px;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 24px;

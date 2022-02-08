@@ -1,5 +1,12 @@
 <% content_for :page_title, @review.title %>
 <h1><%= @review.title %></h1>
+<p class="author">Posted by 
+    <% if @review.user.present? %>
+    <%= @review.user.username %>
+    <% else %>
+    Anonymous
+    <% end %>
+</p>
 <div class="review-header">
     <div class="restaurant">
         <h2><%= @review.restaurant %></h2>
@@ -21,15 +28,26 @@
 </div>
 <p class="body"><%= simple_format @review.body %></p>
 <div class="actions">
-    <%= link_to "Edit this review", edit_review_path(@review) %><br> 
-    <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>
-    <%= link_to "Back to list", root_path %>
+    <% if is_logged_in? and @review.user %>
+        <%= link_to "Edit this review", edit_review_path(@review) %><br> 
+        <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>
+        <%= link_to "Back to list", root_path %>
+    <% else %>
+        <%= link_to "Back to list", root_path %>
+    <% end %>
 </div>
 <h3>Comments</h3>
     <% @review.comments.order("created_at desc").each do |comment| %>
         <div class="comment">
             <p><%= simple_format comment.body %></p>
-            <span class="posted">Posted <%= time_ago_in_words comment.created_at %> ago</span>
+            <span class="posted">Posted by 
+            <% if comment.user.present? %>
+                <%= comment.user.username %>
+            <% else %>
+                Anonymous
+            <% end %>
+            <%= time_ago_in_words comment.created_at %> ago
+            </span>
         </div>
     <% end %>
 <h3>Add a comment</h3>

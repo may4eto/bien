@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+    #check if logged in
+    before_action :check_login, except: [:index, :show]
+
     def index
     #this is the list page for the reviews
         @price = params[:price]
@@ -21,8 +24,10 @@ class ReviewsController < ApplicationController
         @min_length = Review.validators_on( :body ).first.options[:minimum]
     end
     def create 
-    #take info from the form and add it to the database
+    #take info from the form and add it to the model
     @review = Review.new(form_params)
+    #then associate it to the current user
+    @review.user = @current_user
     # we want to check  if the model can be saved 
         if @review.save
             redirect_to root_path

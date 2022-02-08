@@ -18,9 +18,9 @@
         <% end %>
       </h1>
       <nav>
-          <% if session[:user_id].present? %>
+          <% if is_logged_in? %>
             <div class="session">
-              Hi, <%= current_user.username %>
+              Hi, <%= @current_user.username %>!
             </div>
             <div class="session">
               <%= link_to "Log out", session_path, method: :delete %>
