@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :users
+  resource :session
   root "reviews#index"
 end 

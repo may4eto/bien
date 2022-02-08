@@ -18,9 +18,24 @@
         <% end %>
       </h1>
       <nav>
-        <div class="button">
-          <%= link_to "Add a review", new_review_path %>
-        </div>
+          <% if session[:user_id].present? %>
+            <div class="session">
+              Hi, <%= current_user.username %>
+            </div>
+            <div class="session">
+              <%= link_to "Log out", session_path, method: :delete %>
+            </div>
+            <div class="button">
+            <%= link_to "Add a review", new_review_path %>
+            </div>
+          <% else %>
+            <div class="session">
+              <%= link_to "Sign up", new_user_path %>
+            </div>
+            <div class="button">
+              <%= link_to "Log in", new_session_path %>
+            </div>
+          <% end %>
       </nav>
     </header>
     <main>
