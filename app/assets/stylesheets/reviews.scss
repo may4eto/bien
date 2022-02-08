@@ -34,3 +34,12 @@ div.review-header {
     color: $green;
   }
 }
+
+div.button {
+  background-color: $orange;
+  padding: 8px 16px;
+  a {
+    text-decoration: none;
+    color: $cream;
+  }
+}
