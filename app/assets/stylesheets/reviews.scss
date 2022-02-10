@@ -14,16 +14,6 @@ p.author {
   margin-top: 8px;
 }
 
-div.restaurant h2 {
-  margin: 0px;
-}
-
-span.address {
-  color: $grey;
-  font-style: italic;
-  display: inline-block;
-}
-
 div.review-header {
   display: flex;
   max-width: 600px;
@@ -32,6 +22,24 @@ div.review-header {
   margin-bottom: 24px;
   border: solid 2px $green;
   padding: 16px;
+  div.restaurant {
+    div.restaurant-title {
+      display: flex;
+      align-items: center;
+      h2 {
+        margin: 0 16px 0 0;
+      }
+      span.bookmarks {
+        display: inline;
+        color: $green;
+      }
+    }
+    span.address {
+      color: $grey;
+      font-style: italic;
+      display: inline-block;
+    }
+  }
 }
 
 .comment {
@@ -48,6 +56,10 @@ div.review-header {
 div.button {
   background-color: $orange;
   padding: 8px 16px;
+  width: fit-content;
+  &.bookmark {
+    margin-bottom: 16px;
+  }
   a {
     text-decoration: none;
     color: $cream;

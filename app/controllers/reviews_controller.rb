@@ -43,21 +43,30 @@ class ReviewsController < ApplicationController
     #find an individual review 
         @review = Review.find(params[:id])
     # destroy it
-        @review.destroy
+        if @review.user = @current_user
+            @review.destroy
+        end
     #redirect to the homepage
         redirect_to root_path
     end 
     def edit
     #the form to update the post
         @review = Review.find(params[:id])
+        if @review.user != @current_user
+            redirect_to root_path
+        end
     end
     def update 
     #saves the updated version in the database
         @review = Review.find(params[:id])
-        if @review.update(form_params)
-            redirect_to review_path(@review)
-        else
-            render "edit"
+        if @review.user != @current_user
+            redirect_to root_path
+        else 
+            if @review.update(form_params)
+                redirect_to review_path(@review)
+            else
+                render "edit"
+            end
         end
     end
     def form_params
