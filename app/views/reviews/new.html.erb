@@ -1,15 +1,5 @@
 <% content_for :page_title, "Add a new review" %>
-<h3>Add your restaurant review</h3>
-<%= render "form" %>
-<script>
-    $(document).ready(function() {
-      var review_text = $("#review_text");
-      var counter     = $("#counter");
-      var min_length  = counter.data("minimum-length");
-
-      review_text.keyup(function() {
-          counter.text(min_length - $(this).val().length);
-      });
-
-    });
-</script>
+<div class="new-review">
+  <h3>Add your restaurant review</h3>
+  <%= render "form" %>
+</div>

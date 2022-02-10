@@ -26,7 +26,7 @@ div.review-header {
   align-items: flex-start;
   margin-bottom: 24px 0 24px 0;
   border: solid 2px $green;
-  padding: 16px;
+  padding: 16px 24px;
   div.restaurant {
     div.restaurant-title {
       display: flex;
@@ -80,5 +80,16 @@ div.review {
   }
   a {
     text-decoration: none;
+  }
+}
+
+div.new-review,
+div.edit-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  form input {
+    margin-bottom: 8px;
   }
 }
