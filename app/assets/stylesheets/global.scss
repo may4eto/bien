@@ -20,7 +20,6 @@ body {
   font-family: $bodyFont;
   font-size: 18px;
   line-height: 1.5;
-  margin: 0;
 }
 
 h1,
@@ -46,13 +45,15 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   h1 {
     margin: 0;
 
     img {
       width: 80px;
     }
+  }
+  div.button a {
+    color: $cream;
   }
 }
 
@@ -63,15 +64,27 @@ nav {
   div.session {
     margin-right: 16px;
   }
+  form button {
+    margin: 0;
+    background-color: $orange;
+    border: solid 1px $orange;
+    padding: 4px 6px;
+    i {
+      color: #ffeccf;
+    }
+  }
 }
 
 main {
   min-height: calc(100vh - 150px);
+  margin: 0px auto 0px auto;
+  max-width: 900px;
 }
 
 footer {
   font-size: 14px;
   color: $grey;
+  text-align: center;
 }
 
 label {
@@ -125,5 +138,16 @@ nav.filters {
     min-width: 200px;
     font-size: 14px;
     padding: 4px 5px;
+  }
+}
+
+div.log-in,
+div.sign-up {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  form input {
+    margin-bottom: 8px;
   }
 }

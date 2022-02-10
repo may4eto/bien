@@ -6,7 +6,7 @@
 
 h1 {
   line-height: 1.2;
-  margin: 0;
+  margin: 24px 0 0 0;
 }
 
 p.author {
@@ -14,12 +14,17 @@ p.author {
   margin-top: 8px;
 }
 
+section.review,
+section.comments {
+  margin-bottom: 24px;
+}
+
 div.review-header {
   display: flex;
   max-width: 600px;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 24px 0 24px 0;
   border: solid 2px $green;
   padding: 16px;
   div.restaurant {
@@ -62,6 +67,18 @@ div.button {
   }
   a {
     text-decoration: none;
-    color: $cream;
+    color: #fff;
+  }
+}
+
+div.review {
+  h2 {
+    margin-bottom: 0px;
+  }
+  p {
+    margin: 0 0 24px 0;
+  }
+  a {
+    text-decoration: none;
   }
 }
