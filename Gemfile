@@ -72,7 +72,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # font-awesome
-
 gem 'font-awesome-rails'
+
+#a library for uploading files
+gem 'carrierwave', '~>1.0'
+gem 'mini_magick'
 
 ruby "2.7.5"

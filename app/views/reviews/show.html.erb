@@ -1,53 +1,61 @@
 <% content_for :page_title, @review.title %>
 <section class="review">
-    <h1><%= @review.title %></h1>
-    <p class="author">Posted by 
-        <% if @review.user.present? %>
-        <%= link_to @review.user.username, user_path(@review.user) %>
-        <% else %>
-        Anonymous
-        <% end %>
-    </p>
     <div class="review-header">
+        <figure class="restaurant">
+            <%= image_tag @review.photo_url if @review.photo_url %>
+        </figure>
         <div class="restaurant">
-            <div class="restaurant-title">
-                <h2><%= @review.restaurant %></h2>
-                <span class="bookmarks">
-                    <i class="fa fa-bookmark" aria-hidden="true"></i>
-                    <%= @review.bookmarks.count %>
-                </span>
+            <div class="restaurant-info">
+                <div class="restaurant-title">
+                    <h2><%= @review.restaurant %></h2>
+                    <span class="bookmarks">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i>
+                        <%= @review.bookmarks.count %>
+                    </span>
+                </div>
+                <span class="address"><%= @review.address %></span>
+                <div class = "review-meta">
+                    <span class="score">Score: <%= @review.score %>/10</span><br>
+                    <% if @review.cuisine.present? %>
+                        <span class="cuisine">Cuisine: <%= @review.cuisine %></span><br>
+                    <% end %>
+                    <% if @review.ambiance.present? %>
+                        <span class="ambiance">Ambiance: <%= @review.ambiance %></span><br>
+                    <% end %>
+                    <% if @review.price.present? %>
+                        <span class="price">Price: <%= @review.price %></span><br>
+                    <% end %>
+                </div>
             </div>
-            <span class="address"><%= @review.address %></span>
         </div>
-        <div class="review-meta">
-            <span class="score">Score: <%= @review.score %>/10</span><br>
-            <% if @review.ambiance.present? %>
-                <span class="ambiance">Ambiance: <%= @review.ambiance %></span><br>
-            <% end %>
-            <% if @review.price.present? %>
-                <span class="price">Price: <%= @review.price %></span><br>
-            <% end %>
-            <% if @review.cuisine.present? %>
-                <span class="cuisine">Cuisine: <%= @review.cuisine %></span><br>
-            <% end %>
-        </div>
-
     </div>
-    <p class="body"><%= simple_format @review.body %></p>
+    <div class="review-body">
+    <h1><%= @review.title %></h1>
+        <p class="author">Posted by 
+            <% if @review.user.present? %>
+            <%= link_to @review.user.username, user_path(@review.user) %>
+            <% else %>
+            Anonymous
+            <% end %>
+        </p>
+        <p class="body"><%= simple_format @review.body %></p>
+    </div>
     <div class="actions">
         <% if is_logged_in? %>
-            <% if @review.bookmarks.where(user: @current_user).any? %>
-                <div class="button bookmark">
-                    <%= link_to "Remove bookmark", review_bookmark_path(@review), method: :delete %>
-                </div>
-            <% else %>
-                <div class="button bookmark">
-                    <%= link_to "Bookmark", review_bookmark_path(@review), method: :post %>
-                </div>
-            <% end %>
+        <% if @review.bookmarks.where(user: @current_user).any? %>
+            <div class="button bookmark">
+                <%= link_to "Remove bookmark", review_bookmark_path(@review), method: :delete %>
+            </div>
+        <% else %>
+            <div class="button bookmark">
+                <%= link_to "Bookmark", review_bookmark_path(@review), method: :post %>
+            </div>
+        <% end %>
         <% end %>
         <% if is_logged_in? and @review.user == @current_user %>
+            <% if @review.created_at > 1.hour.ago %>
             <%= link_to "Edit this review", edit_review_path(@review) %><br> 
+            <% end %>
             <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>
             <%= link_to "Back to list", root_path %>
         <% else %>

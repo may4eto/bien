@@ -20,6 +20,7 @@
 </nav>
 <% @reviews.each do |review| %>
     <div class="review">
+        <%= image_tag review.photo_url :thumb if review.photo_url %>
         <%= link_to review_path(review) do %>
             <h2><%= review.title %></h2>
             <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>

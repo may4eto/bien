@@ -21,28 +21,49 @@ section.comments {
 
 div.review-header {
   display: flex;
-  max-width: 600px;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
-  margin-bottom: 24px 0 24px 0;
+  max-width: 100vw;
+  margin: 24px 0 24px 0;
   border: solid 2px $green;
-  padding: 16px 24px;
-  div.restaurant {
-    div.restaurant-title {
-      display: flex;
-      align-items: center;
-      h2 {
-        margin: 0 16px 0 0;
-      }
-      span.bookmarks {
-        display: inline;
-        color: $green;
-      }
+  padding: 16px;
+  figure.restaurant {
+    width: 60%;
+    margin: 0px;
+    img {
+      display: block;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
     }
-    span.address {
-      color: $grey;
-      font-style: italic;
-      display: inline-block;
+  }
+
+  div.restaurant {
+    width: 40%;
+    align-self: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 0 24px;
+    div.restaurant-info {
+      display: block;
+      div.restaurant-title {
+        display: flex;
+        align-items: center;
+        h2 {
+          margin: 0 16px 0 0;
+        }
+        span.bookmarks {
+          display: inline;
+          color: $green;
+        }
+      }
+      span.address {
+        color: $grey;
+        font-style: italic;
+        display: inline-block;
+        margin-bottom: 24px;
+      }
     }
   }
 }
@@ -62,21 +83,24 @@ div.button {
   background-color: $orange;
   padding: 8px 16px;
   width: fit-content;
-  &.bookmark {
-    margin-bottom: 16px;
-  }
   a {
     text-decoration: none;
     color: #fff;
   }
+  &.bookmark {
+    margin: 16px 0;
+  }
 }
 
 div.review {
-  h2 {
-    margin-bottom: 0px;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  img {
+    margin-right: 24px;
   }
-  p {
-    margin: 0 0 24px 0;
+  h2 {
+    margin: 0px;
   }
   a {
     text-decoration: none;
