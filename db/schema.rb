@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(version: 2022_02_11_153012) do
 
   create_table "bookmarks", force: :cascade do |t|
-    t.integer "review_id", null: false
-    t.integer "user_id", null: false
+    t.integer "review_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_id"], name: "index_bookmarks_on_review_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2022_02_11_153012) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
-    t.integer "review_id", null: false
+    t.integer "review_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
