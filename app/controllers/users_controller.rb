@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         if @user.save
             #save the session with the user
             session[:user_id] = @user.id
-            redirect_to users_path
+            redirect_to root_path
         else
             render "new"
         end
