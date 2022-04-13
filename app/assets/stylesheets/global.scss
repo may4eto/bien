@@ -151,3 +151,46 @@ div.sign-up {
     margin-bottom: 8px;
   }
 }
+
+.content-image {
+  width: 100%;
+  margin: 0;
+  img {
+    width: 100%;
+  }
+}
+
+.home {
+  .content-image {
+    position: relative;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      transform: translateY(-50%);
+      h1 {
+        color: #fff;
+        margin: 0 0 16px 0;
+      }
+      .button {
+        background-color: #ffeccf;
+        a {
+          color: #ff551a;
+        }
+      }
+    }
+  }
+  .review {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.home-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

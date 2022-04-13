@@ -57,9 +57,9 @@
             <%= link_to "Edit this review", edit_review_path(@review) %><br> 
             <% end %>
             <%= link_to "Delete this review", review_path(@review), method: :delete, data: {confirm: "Are you sure?"} %><br>
-            <%= link_to "Back to list", root_path %>
+            <%= link_to "Back to list", reviews_path %>
         <% else %>
-            <%= link_to "Back to list", root_path %>
+            <%= link_to "Back to list", reviews_path %>
         <% end %>
     </div>
 </section>

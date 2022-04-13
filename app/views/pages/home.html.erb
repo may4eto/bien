@@ -1,0 +1,23 @@
+<div class="page home">
+    <div class="head">
+        <figure class="content-image">
+            <%= image_tag @content.image_url %>
+            <div class="content">
+                <h1><%= @content.body %></h1>
+                <div class="button">
+                    <%= link_to "Browse reviews", reviews_path %>
+                </div>
+            </div>
+        </figure>
+    </div>
+    <div class="home-reviews">
+        <div class="highly-rated">
+            <h2><span><i class="fa fa-diamond" aria-hidden="true"></i></span> Highly reated reviews</h2>
+            <%= render partial: "review", collection: @highly_rated_reviews %>
+        </div>
+        <div class="featured">
+            <h2><span><i class="fa fa-bullseye" aria-hidden="true"></i></span> Featured reviews</h2>
+            <%= render partial: "review", collection: @featured_reviews %>
+        </div>
+    </div>
+</div>
