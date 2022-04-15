@@ -49,7 +49,7 @@ h2 {
 header,
 main,
 footer {
-  padding: 20px 40px;
+  padding: 20px;
 }
 
 a {
@@ -201,11 +201,6 @@ div.sign-up {
 @media (max-width: 650px) {
   header nav .button {
     padding: 4px 8px;
-  }
-  header,
-  main,
-  footer {
-    padding: 10px 20px;
   }
   header h1 a img {
     width: 60px;
