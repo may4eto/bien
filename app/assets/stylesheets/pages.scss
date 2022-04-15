@@ -29,9 +29,9 @@
         margin: 0 0 16px 0;
       }
       .button {
-        background-color: #ffeccf;
+        background-color: $cream;
         a {
-          color: #ff551a;
+          color: $black;
           font-size: 1rem;
         }
       }
@@ -57,6 +57,7 @@
 @media (max-width: 650px) {
   .home-reviews {
     grid-template-columns: 1fr;
+    margin-top: 16px;
   }
   .highly-rated .review:last-child {
     margin-bottom: 16px;

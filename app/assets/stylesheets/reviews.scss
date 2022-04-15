@@ -14,7 +14,8 @@ p.author {
   margin-top: 8px;
 }
 
-section.review {
+section.review,
+div.review {
   margin-bottom: 24px;
 }
 
@@ -132,6 +133,16 @@ div.edit-review {
     }
     div.restaurant-info span.address {
       margin-bottom: 8px !important;
+    }
+  }
+  div.new-review,
+  div.edit-review {
+    form {
+      width: 100%;
+      input,
+      textarea {
+        width: 100% !important;
+      }
     }
   }
 }

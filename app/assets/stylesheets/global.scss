@@ -52,7 +52,6 @@ footer {
 
 a {
   color: $green;
-  line-height: 1;
 }
 
 a:not(.filters a),
@@ -204,9 +203,6 @@ div.sign-up {
 }
 
 @media (max-width: 650px) {
-  html {
-    font-size: 12px;
-  }
   header nav .button {
     padding: 4px 8px;
   }
@@ -236,6 +232,7 @@ div.sign-up {
       justify-content: space-between;
       padding: 20px;
       background: $cream !important;
+      z-index: 10;
     }
   }
   header button {
@@ -245,9 +242,5 @@ div.sign-up {
     appearance: none;
     border: none;
     background-color: transparent;
-  }
-  .new-review form textarea,
-  .new-review form input {
-    width: 100%;
   }
 }
