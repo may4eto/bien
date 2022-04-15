@@ -52,11 +52,13 @@
       <p>Copyright 2021 Bien</p>
     </footer>
     <script>
-      const hamburgerMenu = document.querySelector("header button");
-      const headerNav = document.querySelector("header nav");
-      hamburgerMenu.addEventListener("click", function() {
-        headerNav.classList.toggle("show");
-      })
+      document.addEventListener("DOMContentLoaded", function(event) { 
+        const hamburgerMenu = document.querySelector("header button");
+        const headerNav = document.querySelector("header nav");
+        hamburgerMenu.addEventListener("click", function() {
+          headerNav.classList.toggle("show");
+        })
+      });
     </script>
   </body>
 </html>
