@@ -11,7 +11,7 @@
         <%= active_link_to review.cuisine, reviews_path(cuisine: review.cuisine, price: @price, location: @location), active: {cuisine: review.cuisine} %>
     <% end %>
     </div>
-    <form action="/reviews">
+    <form action="/reviews" class="search">
         <input type="text" name="location" placeholder="Search location..." value="<%= @location %>">
         <input type="hidden" name="price" value="<%= @price %>">
         <input type="hidden" name="cuisine" value="<%= @cuisine %>">

@@ -20,13 +20,13 @@
       <nav>
           <% if is_logged_in? %>
             <div class="session">
-              Hi, <%= @current_user.username %>
+              <span>Hi, <%= @current_user.username %></span>
             </div>
-            <%if @current_user.is_admin? %>
-            <div class="session">
-              <%= link_to "Admin", admin_root_path %>
-            </div>
-            <% end %>
+              <%if @current_user.is_admin? %>
+              <div class="session">
+                <%= link_to "Admin", admin_root_path %>
+              </div>
+              <% end %>
             <div class="session">
               <%= link_to "Log out", session_path, method: :delete %>
             </div>
@@ -42,6 +42,7 @@
             </div>
           <% end %>
       </nav>
+      <button><i class="fa fa-bars" aria-hidden="true"></i></button>
     </header>
     <main>
       <%= yield %>
@@ -50,5 +51,12 @@
       <p><%= link_to "About", about_path %> | <%= link_to "Terms and conditions", terms_path %> | <%= link_to "Privacy policy", privacy_path %></p>
       <p>Copyright 2021 Bien</p>
     </footer>
+    <script>
+      const hamburgerMenu = document.querySelector("header button");
+      const headerNav = document.querySelector("header nav");
+      hamburgerMenu.addEventListener("click", function() {
+        headerNav.classList.toggle("show");
+      })
+    </script>
   </body>
 </html>

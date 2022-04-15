@@ -11,6 +11,10 @@ $grey: #999999;
 $titleFont: "PT Serif";
 $bodyFont: "Work Sans";
 
+html {
+  font-size: 18px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -18,7 +22,7 @@ $bodyFont: "Work Sans";
 body {
   color: $black;
   font-family: $bodyFont;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -30,14 +34,31 @@ h5 {
   font-family: $titleFont;
 }
 
+h1 {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+h2 {
+  font-size: 1.3rem;
+  line-height: 1.2;
+}
+
 header,
 main,
 footer {
-  padding: 20px 30px 20px 30px;
+  padding: 20px 40px;
 }
 
 a {
   color: $green;
+  line-height: 1;
+}
+
+a:not(.filters a),
+p,
+span {
+  font-size: 1rem;
 }
 
 header {
@@ -52,26 +73,30 @@ header {
       width: 80px;
     }
   }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    div.session {
+      margin-right: 16px;
+    }
+  }
   div.button a {
     color: $cream;
+    font-size: 1rem;
+  }
+  button {
+    display: none;
   }
 }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  div.session {
-    margin-right: 16px;
-  }
-  form button {
-    margin: 0;
-    background-color: $orange;
-    border: solid 1px $orange;
-    padding: 4px 6px;
-    i {
-      color: #ffeccf;
-    }
+form button {
+  margin: 0;
+  background-color: $orange;
+  border: solid 1px $orange;
+  padding: 4px 6px;
+  i {
+    color: #ffeccf;
   }
 }
 
@@ -82,9 +107,11 @@ main {
 }
 
 footer {
-  font-size: 14px;
   color: $grey;
   text-align: center;
+  p {
+    font-size: 14px;
+  }
 }
 
 label {
@@ -94,7 +121,7 @@ label {
 input,
 textarea {
   font-size: 18px;
-  min-width: 400px;
+  max-width: 400px;
   border: 1px solid #cccccc;
   padding: 7px 10px;
   font-family: inherit;
@@ -114,7 +141,7 @@ textarea {
 nav.filters {
   margin: 0 0 20px 0;
   padding: 0 0 10px 0;
-  font-size: 14px;
+  font-size: 0.8rem;
   border-bottom: 2px solid $cream;
 
   display: flex;
@@ -161,7 +188,7 @@ div.sign-up {
 }
 
 .home {
-  .content-image {
+  .head {
     position: relative;
     .content {
       display: flex;
@@ -169,9 +196,10 @@ div.sign-up {
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 50%;
-      left: 25%;
-      transform: translateY(-50%);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       h1 {
         color: #fff;
         margin: 0 0 16px 0;
@@ -180,6 +208,7 @@ div.sign-up {
         background-color: #ffeccf;
         a {
           color: #ff551a;
+          font-size: 1rem;
         }
       }
     }
@@ -193,4 +222,83 @@ div.sign-up {
 .home-reviews {
   display: grid;
   grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 930px) {
+  html {
+    font-size: 14px;
+  }
+  .home-reviews .review img {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 810px) {
+  nav.filters {
+    flex-direction: column;
+    align-items: flex-start !important;
+    div.price,
+    div.cuisine {
+      margin-left: 0;
+    }
+    form.search {
+      margin: 8px 0;
+    }
+    a {
+      font-size: 1rem;
+      line-height: 2;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  html {
+    font-size: 12px;
+  }
+  header nav .button {
+    padding: 4px 8px;
+  }
+  .home-reviews {
+    grid-template-columns: 1fr;
+  }
+  header,
+  main,
+  footer {
+    padding: 10px 20px;
+  }
+  header h1 a img {
+    width: 60px;
+  }
+}
+
+@media (max-width: 420px) {
+  header {
+    position: relative;
+  }
+  header nav {
+    display: none;
+    &.show {
+      position: absolute;
+      left: 0;
+      top: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #fff;
+    }
+  }
+  header button {
+    display: block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+  }
+  .new-review form textarea,
+  .new-review form input {
+    width: 100%;
+  }
 }
