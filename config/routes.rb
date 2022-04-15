@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resource :session
   get "about", to: "pages#about"
   get "terms", to: "pages#terms"
+  get "privacy", to: "pages#privacy"
   root "pages#home"
 end 

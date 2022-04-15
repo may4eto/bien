@@ -10,4 +10,7 @@ class PagesController < ApplicationController
     def terms
         @content = Page.find_by(url: "terms")
     end
+    def privacy 
+        @content = Page.find_by(url: "privacy")
+    end
 end

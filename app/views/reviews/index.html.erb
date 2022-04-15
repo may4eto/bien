@@ -1,17 +1,17 @@
 <nav class="filters">
-    <%= active_link_to "All reviews", root_path, active: {price: nil, cuisine: nil, location: nil} %>
+    <%= active_link_to "All reviews", reviews_path, active: {price: nil, cuisine: nil, location: nil} %>
     <div class="price">
-        <%= active_link_to "$", root_path(price: 1, cuisine: @cuisine, location: @location), active: {price: 1} %>
-        <%= active_link_to "$$", root_path(price: 2, cuisine: @cuisine, location: @location), active: {price: 2} %>
-        <%= active_link_to "$$$", root_path(price: 3, cuisine: @cuisine, location: @location), active: {price: 3} %>
-        <%= active_link_to "$$$$", root_path(price: 4, cuisine: @cuisine, location: @location), active: {price: 4} %>
+        <%= active_link_to "$", reviews_path(price: 1, cuisine: @cuisine, location: @location), active: {price: 1} %>
+        <%= active_link_to "$$", reviews_path(price: 2, cuisine: @cuisine, location: @location), active: {price: 2} %>
+        <%= active_link_to "$$$", reviews_path(price: 3, cuisine: @cuisine, location: @location), active: {price: 3} %>
+        <%= active_link_to "$$$$", reviews_path(price: 4, cuisine: @cuisine, location: @location), active: {price: 4} %>
     </div>
     <div class="cuisine">
-        <%= active_link_to "Italian", root_path(cuisine: "Italian", price: @price, location: @location), active: {cuisine: "Italian"} %>
-        <%= active_link_to "Burgers", root_path(cuisine: "Burgers", price: @price, location: @location), active: {cuisine: "Burgers"} %>
-        <%= active_link_to "Lebanese", root_path(cuisine: "Lebanese", price: @price, location: @location), active: {cuisine: "Lebanese"} %>
+    <% @reviews.each do |review| %>
+        <%= active_link_to review.cuisine, reviews_path(cuisine: review.cuisine, price: @price, location: @location), active: {cuisine: review.cuisine} %>
+    <% end %>
     </div>
-    <form action="/">
+    <form action="/reviews">
         <input type="text" name="location" placeholder="Search location..." value="<%= @location %>">
         <input type="hidden" name="price" value="<%= @price %>">
         <input type="hidden" name="cuisine" value="<%= @cuisine %>">
