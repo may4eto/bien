@@ -59,7 +59,7 @@
   .home-reviews {
     grid-template-columns: 1fr;
   }
-  .highly-rated .review:last-child {
-    margin-bottom: 16px;
+  .highly-rated {
+    margin-top: 16px;
   }
 }
