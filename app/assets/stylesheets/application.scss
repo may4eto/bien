@@ -11,10 +11,11 @@
  * It is generally better to create a new file per style scope.
  *
  *= require global
- *= require users
  *= require reviews
  *= require pages
  *= require comments
+ *= require users
+ *= require sessions
  *= require_self
  */
 
