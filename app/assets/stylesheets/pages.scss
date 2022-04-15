@@ -1,3 +1,64 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../stylesheets/global.scss";
+
+.content-image {
+  width: 100%;
+  margin: 0;
+  img {
+    width: 100%;
+  }
+}
+
+.home {
+  .head {
+    position: relative;
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      h1 {
+        color: #fff;
+        margin: 0 0 16px 0;
+      }
+      .button {
+        background-color: #ffeccf;
+        a {
+          color: #ff551a;
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+  .review {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.home-reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 930px) {
+  .home-reviews .review img {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-reviews {
+    grid-template-columns: 1fr;
+  }
+  .highly-rated .review:last-child {
+    margin-bottom: 16px;
+  }
+}
