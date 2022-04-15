@@ -1,2 +1,48 @@
-<h2><%= @user.username %></h2>
-<p>Email: <%= @user.email %></p>
+<div class="user">
+    <div class="header">
+        # inlcude image
+        <h1><%= @user.username %>'s profile</h1>
+    </div>
+        <div class="section reviews">
+            <h2><%= @user.username %>'s reviews</h2>
+            <% if @user.reviews.present? %>
+                <% @user.reviews.each do |review| %>
+                    <div class="review">
+                        <%= image_tag review.photo_url :thumb %>
+                        <%= link_to review_path(review) do %>
+                            <h3><%= review.title %></h3>
+                            <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% else %>
+                <p>No reviews yet</p>
+            <% end %>
+        </div>
+        <div class=" section bookmarks">
+            <h2><%= @user.username %>'s bookmarks</h2>
+            <% if @user.bookmarks.present? %>
+                <% @user.bookmarks.each do |bookmark| %>
+                    <div class="review">
+                        <%= image_tag bookmark.review.photo_url :thumb %>
+                        <%= link_to bookmark.review do %>
+                            <h3><%= bookmark.review.title %></h3>
+                            <p><%= bookmark.review.restaurant %> - <%= pluralize bookmark.review.comments.count, "comment" %></p>
+                        <% end %>
+                    </div>
+                <% end %>
+            <% else %>
+                <p>No bookmarks yet</p>        
+            <% end %>
+        </div>
+        <div class=" section comments">
+            <h2><%= @user.username %>'s comments</h2>
+            <% if @user.comments.present? %>
+                <% @user.comments.each do |comment| %>
+                    <p>"<%= comment.body %>" - <%= link_to comment.review.title, comment.review %></p>
+                <% end %>
+            <% else %>
+                <p>No comments yet</p>    
+            <% end %>
+        </div>
+</div>
