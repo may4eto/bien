@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif&family=Work+Sans&display=swap");
+
 /*colors*/
 $green: #3bc8aa;
 $cream: #ffeccf;
@@ -40,7 +42,7 @@ h1 {
 }
 
 h2 {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   line-height: 1.2;
 }
 
@@ -214,6 +216,12 @@ div.sign-up {
   :root {
     font-size: 16px;
   }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
   header {
     position: relative;
   }
@@ -239,5 +247,14 @@ div.sign-up {
     appearance: none;
     border: none;
     background-color: transparent;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 1rem;
   }
 }
