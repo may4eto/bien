@@ -233,11 +233,14 @@ div.sign-up {
       top: 100%;
       width: 100%;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px;
+      flex-direction: column;
+      align-items: flex-start !important;
+      padding: 10px 20px 20px 20px;
       background: $cream !important;
       z-index: 10;
+      .button {
+        margin-top: 8px;
+      }
     }
   }
   header button {
