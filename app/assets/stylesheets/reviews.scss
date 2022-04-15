@@ -122,12 +122,12 @@ div.edit-review {
 @media (max-width: 460px) {
   div.review-header {
     flex-direction: column;
-    div.restaurant {
-      padding-left: 0;
-      width: 100%;
-    }
     figure.restaurant {
       width: 100%;
+    }
+    div.restaurant {
+      padding-left: 0;
+      width: 100% !important;
     }
     div.restaurant-title {
       margin-top: 18px;
