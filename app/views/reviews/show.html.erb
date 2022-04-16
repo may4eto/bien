@@ -23,7 +23,18 @@
                         <span class="ambiance">Ambiance: <%= @review.ambiance %></span><br>
                     <% end %>
                     <% if @review.price.present? %>
-                        <span class="price">Price: <%= @review.price %></span><br>
+                        <span class="price">
+                        Price: 
+                        <%if @review.price === 1 %>
+                        $
+                        <% elsif @review.price === 2 %>
+                        $$
+                        <% elsif @review.price === 3 %>
+                        $$$
+                        <% elsif @review.price === 4 %>
+                        $$$$
+                        <% end %>
+                        </span><br>
                     <% end %>
                 </div>
             </div>

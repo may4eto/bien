@@ -7,9 +7,11 @@
         <%= active_link_to "$$$$", reviews_path(price: 4, cuisine: @cuisine, location: @location), active: {price: 4} %>
     </div>
     <div class="cuisine">
-    <% @reviews.each do |review| %>
-        <%= active_link_to review.cuisine, reviews_path(cuisine: review.cuisine, price: @price, location: @location), active: {cuisine: review.cuisine} %>
-    <% end %>
+        <%= active_link_to "Brunch", reviews_path(cuisine: "Brunch", price: @price, location: @location), active: {cuisine: "Brunch"} %>
+        <%= active_link_to "Burgers", reviews_path(cuisine: "Burgers", price: @price, location: @location), active: {cuisine: "Burgers"} %>
+        <%= active_link_to "Fusion", reviews_path(cuisine: "Fusion", price: @price, location: @location), active: {cuisine: "Fusion"} %>
+        <%= active_link_to "Italian", reviews_path(cuisine: "Italian", price: @price, location: @location), active: {cuisine: "Italian"} %>
+        <%= active_link_to "Oriental", reviews_path(cuisine: "Oriental", price: @price, location: @location), active: {cuisine: "Oriental"} %>
     </div>
     <form action="/reviews" class="search">
         <input type="text" name="location" placeholder="Search location..." value="<%= @location %>">
@@ -18,12 +20,18 @@
         <button class="button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
     </form>
 </nav>
-<% @reviews.each do |review| %>
-    <div class="review">
-        <%= image_tag review.photo_url :thumb %>
-        <%= link_to review_path(review) do %>
-            <h2><%= review.title %></h2>
-            <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
-        <% end %>
-    </div>
+<div class="results">
+<% if @reviews.present? %>
+    <% @reviews.each do |review| %>
+        <div class="review">
+            <%= image_tag review.photo_url :thumb %>
+            <%= link_to review_path(review) do %>
+                <h2><%= review.title %></h2>
+                <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
+            <% end %>
+        </div>
+    <% end %>
+<% else %>
+    <p>No reviews found.</p>
 <% end %>
+</div>

@@ -1,7 +1,13 @@
 <div class="user">
     <div class="header">
         <div class="title">
-            <h1><%= @user.real_name %>'s profile</h1>
+            <h1>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s profile
+            <% else %>
+                <%= @user.username %>'s profile
+            <% end %>
+            </h1>
             <span>Member since <%= @user.created_at.strftime("%B %Y") %></span>
         </div>
         <p>
@@ -11,7 +17,13 @@
         </p>
     </div>
         <div class="section reviews">
-            <h2><%= @user.real_name %>'s reviews</h2>
+            <h2>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s reviews
+            <% else %>
+                <%= @user.username %>'s reviews
+            <% end %>
+            </h2>
             <% if @user.reviews.present? %>
                 <% @user.reviews.each do |review| %>
                     <div class="review">
@@ -27,7 +39,13 @@
             <% end %>
         </div>
         <div class=" section bookmarks">
-            <h2><%= @user.real_name %>'s bookmarked reviews</h2>
+            <h2>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s bookmarked reviews
+            <% else %>
+                <%= @user.username %>'s bookmarked reviews
+            <% end %>
+            </h2>
             <% if @user.bookmarks.present? %>
                 <% @user.bookmarks.each do |bookmark| %>
                     <div class="review">
@@ -43,7 +61,13 @@
             <% end %>
         </div>
         <div class=" section comments">
-            <h2><%= @user.real_name %>'s comments</h2>
+            <h2>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s comments
+            <% else %>
+                <%= @user.username %>'s comments
+            <% end %>
+            </h2>
             <% if @user.comments.present? %>
                 <% @user.comments.each do |comment| %>
                     <p>"<%= comment.body %>" - <%= link_to comment.review.title, comment.review %></p>
