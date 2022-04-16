@@ -12,11 +12,17 @@
     </div>
     <div class="home-reviews">
         <div class="highly-rated">
-            <h2><span><i class="fa fa-diamond" aria-hidden="true"></i></span> Highly rated reviews</h2>
+            <div class="title">
+                <span><i class="fa fa-diamond" aria-hidden="true"></i></span>
+                <h2>Highly rated reviews</h2>
+            </div>
             <%= render partial: "review", collection: @highly_rated_reviews %>
         </div>
         <div class="featured">
-            <h2><span><i class="fa fa-bullseye" aria-hidden="true"></i></span> Featured reviews</h2>
+            <div class="title">
+                <span><i class="fa fa-bullseye" aria-hidden="true"></i></span>
+                <h2>Featured reviews</h2>
+            </div>
             <%= render partial: "review", collection: @featured_reviews %>
         </div>
     </div>

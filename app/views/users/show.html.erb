@@ -1,10 +1,17 @@
 <div class="user">
     <div class="header">
-        # inlcude image
-        <h1><%= @user.username %>'s profile</h1>
+        <div class="title">
+            <h1><%= @user.real_name %>'s profile</h1>
+            <span>Member since <%= @user.created_at.strftime("%B %Y") %></span>
+        </div>
+        <p>
+            <span><%= pluralize @user.reviews.count, "review" %></span><br>
+            <span><%= pluralize @user.bookmarks.count, "bookmarked review" %></span><br>
+            <span><%= pluralize @user.comments.count, "comment" %></span><br>
+        </p>
     </div>
         <div class="section reviews">
-            <h2><%= @user.username %>'s reviews</h2>
+            <h2><%= @user.real_name %>'s reviews</h2>
             <% if @user.reviews.present? %>
                 <% @user.reviews.each do |review| %>
                     <div class="review">
@@ -20,7 +27,7 @@
             <% end %>
         </div>
         <div class=" section bookmarks">
-            <h2><%= @user.username %>'s bookmarks</h2>
+            <h2><%= @user.real_name %>'s bookmarked reviews</h2>
             <% if @user.bookmarks.present? %>
                 <% @user.bookmarks.each do |bookmark| %>
                     <div class="review">
@@ -36,7 +43,7 @@
             <% end %>
         </div>
         <div class=" section comments">
-            <h2><%= @user.username %>'s comments</h2>
+            <h2><%= @user.real_name %>'s comments</h2>
             <% if @user.comments.present? %>
                 <% @user.comments.each do |comment| %>
                     <p>"<%= comment.body %>" - <%= link_to comment.review.title, comment.review %></p>

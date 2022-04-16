@@ -43,10 +43,17 @@
     align-items: center;
   }
 }
-
 .home-reviews {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    span {
+      margin-right: 8px;
+    }
+  }
 }
 
 @media (max-width: 930px) {
