@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
         @comment = @review.comments.new(params.require(:comment).permit(:body))
         @comment.user = @current_user
         @comment.save 
+        flash[:success] = "Your comment was posted!"
         redirect_to review_path(@review)
     end
 end

@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
+    before_action :store_location
     before_action :find_current_user
 
     #add in the method to use in the views
     helper_method :is_logged_in?
+
+    def store_location
+        session[:return_to] = request.url
+    end
 
     def find_current_user
         if is_logged_in?

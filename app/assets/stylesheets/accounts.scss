@@ -1,0 +1,21 @@
+// Place all the styles related to the accounts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../stylesheets/global.scss";
+
+div.edit-account {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  h2 {
+    margin-bottom: 24px;
+  }
+  form input {
+    margin-bottom: 8px;
+    width: 100%;
+  }
+  form input.btn {
+    margin: 16px 0;
+  }
+}

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resource :session
+  resource :account
   get "about", to: "pages#about"
   get "terms", to: "pages#terms"
   get "privacy", to: "pages#privacy"
