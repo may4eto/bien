@@ -102,7 +102,7 @@
                 </div>
                 <% if is_logged_in? and comment.user == @current_user %>
                     <div class="comment-actions">
-                        <%= link_to (raw("<i class='fa fa-pencil' aria-hidden='true'></i>")), nil, remote: true %>
+                        <%= link_to (raw("<i class='fa fa-pencil' aria-hidden='true'></i>")), nil, remote: true, class: "hide"  %>
                         <%= link_to (raw("<i class='fa fa-trash' aria-hidden='true'></i>")), review_comment_path(@review, comment), method: :delete, data: {confirm: "Are you sure?"} %>
                     </div>
                 <% end %>
