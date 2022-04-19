@@ -10,7 +10,7 @@ class AccountsController < ApplicationController
 
     def update
         if @current_user.update(form_params)
-            flash[:success] = "Your account has been updated!"
+            flash[:success] = "Your account has been updated"
         end
         render "edit"
     end

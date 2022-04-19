@@ -30,8 +30,8 @@ class ReviewsController < ApplicationController
     @review.user = @current_user
     # we want to check  if the model can be saved 
         if @review.save
-            flash[:success] = "Your review was posted!"
-            redirect_to root_path
+            flash[:success] = "Your review has been posted"
+            redirect_to reviews_path
         else
             render "new"
         end
@@ -48,7 +48,8 @@ class ReviewsController < ApplicationController
             @review.destroy
         end
     #redirect to the homepage
-        redirect_to root_path
+        flash[:success] = "Your review has been deleted"
+        redirect_to reviews_path
     end 
     def edit
     #the form to update the post
@@ -66,7 +67,7 @@ class ReviewsController < ApplicationController
             redirect_to root_path
         else 
             if @review.update(form_params)
-                flash[:success] = "Your review was updated!"
+                flash[:success] = "Your review has been updated"
                 redirect_to review_path(@review)
             else
                 render "edit"

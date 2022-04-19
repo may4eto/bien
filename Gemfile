@@ -82,4 +82,7 @@ gem 'fog-aws'
 # active admin
 gem 'activeadmin'
 
+# stimulus
+gem 'stimulus-rails'
+
 ruby "2.7.5"
