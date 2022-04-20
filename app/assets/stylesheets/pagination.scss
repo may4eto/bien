@@ -33,19 +33,6 @@
       border-color: $black;
     }
   }
-  .page_info {
-    background: $cream;
-    color: $black;
-    padding: 0.4em 0.6em;
-    width: 22em;
-    margin-bottom: 0.3em;
-    text-align: left !important;
-    b {
-      color: $green;
-      background: $cream;
-      padding: 0.1em 0.25em;
-    }
-  }
   &:after {
     content: ".";
     display: block;
