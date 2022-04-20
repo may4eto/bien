@@ -1,13 +1,13 @@
 <%= simple_form_for @review do |f| %>
-    <%= f.input :title %>
-    <%= f.input :restaurant %>
-    <%= f.input :address %>
+    <%= f.input :title, error: false %>
+    <%= f.input :restaurant, error: false %>
+    <%= f.input :address, error: false %>
     <%= f.input :photo %>
-    <%= f.input :body %>
+    <%= f.input :body, error: false %>
     <%= f.input :cuisine, prompt: "Select cuisine", collection: ["Brunch", "Burgers", "Fusion", "Italian", "Oriental"] %>
     <%= f.input :price, collection: [[1, '$'], [2, '$$'], [3, '$$$'], [4, '$$$$']], label_method: :second, value_method: :first, prompt: "Select price range" %>
     <%= f.input :ambiance %>
-    <%= f.input :score, prompt: "Select score", collection: 0..10 %>
+    <%= f.input :score, prompt: "Select score", collection: 0..10, error: false %>
     <%= f.button :submit %>
 <% end %>
 

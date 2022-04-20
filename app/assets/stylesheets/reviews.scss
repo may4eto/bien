@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "../stylesheets/global.scss";
+@import "../stylesheets/pagination.scss";
 //@import "../stylesheets/application.scss";
 
 h1 {
@@ -116,11 +117,53 @@ div.edit-review {
   }
 }
 
+.results {
+  position: relative;
+  .sort {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    span,
+    a,
+    i {
+      font-size: 14px;
+      display: inline-block;
+    }
+    a {
+      margin-left: 4px;
+      color: $black;
+      .active {
+        color: $green;
+      }
+    }
+    span {
+      margin-right: 4px;
+    }
+  }
+}
+
 @media (max-width: 650px) {
   header,
   main,
   footer {
     padding: 10px 20px;
+  }
+  .results {
+    position: static;
+    .sort {
+      position: static;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+      span,
+      a {
+        font-size: 1rem;
+        line-height: 1;
+      }
+    }
   }
 }
 

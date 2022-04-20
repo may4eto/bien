@@ -251,6 +251,20 @@ div.sign-up {
   }
 }
 
+.success {
+  background: $green;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+.error {
+  background-color: $orange;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
 @media (max-width: 480px) {
   h1 {
     font-size: 1.2rem;
@@ -258,11 +272,4 @@ div.sign-up {
   h2 {
     font-size: 1rem;
   }
-}
-
-.success {
-  background: $green;
-  color: #fff;
-  padding: 10px 20px;
-  text-align: center;
 }

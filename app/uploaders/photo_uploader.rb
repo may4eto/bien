@@ -8,7 +8,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   storage :fog
 
   #size to fit the maximum width and height
-  process resize_to_fit: [900, 600]
+  process resize_to_fill: [900, 600]
 
   version :thumb do
     process resize_to_fill: [100, 100]

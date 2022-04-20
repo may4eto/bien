@@ -22,7 +22,12 @@
 </nav>
 <div class="results">
 <% if @reviews.present? %>
-    <% @reviews.each do |review| %>
+    <div class="sort">
+        <span>Score</span>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-asc' aria-hidden='true'></i>")), reviews_path(price: @price, cuisine: @cuisine, location: @location), active: {:sort => "score ASC"} %>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-desc' aria-hidden='true'></i>")), reviews_path(price: @price, cuisine: @cuisine, location: @location), active: {:sort => "score DESC"} %>
+    </div>
+    <% @reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
             <%= image_tag review.photo_url :thumb %>
             <%= link_to review_path(review) do %>
@@ -36,4 +41,13 @@
 <% else %>
     <p>No reviews found.</p>
 <% end %>
+</div>
+
+<div class="digg_pagination">
+    <% if @reviews.present? %>
+        <div class="page_info">
+        <%= page_entries_info @reviews %>
+        </div>
+    <% end %>
+    <%= will_paginate @reviews, :container => false %>
 </div>

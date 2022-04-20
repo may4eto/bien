@@ -49,6 +49,13 @@
         <%= flash[:success] %>
       </div>
     <% end %>
+    <% if flash[:messages] %>
+      <div class="error">
+        <% flash[:messages].each do |message| %>
+          <span><%= message%></span><br>
+        <% end %>
+      </div>
+    <% end %>
     <main>
       <%= yield %>
     </main>

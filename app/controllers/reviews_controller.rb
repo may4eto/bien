@@ -7,7 +7,8 @@ class ReviewsController < ApplicationController
         @price = params[:price]
         @cuisine = params[:cuisine]
         @location = params[:location]
-        @reviews = Review.all 
+        # @reviews = Review.all 
+        @reviews = Review.paginate(:page => params[:page], :per_page => 5).order(params[:sort])
         if @price.present?
             @reviews = @reviews.where(price: @price)
         end
@@ -29,10 +30,12 @@ class ReviewsController < ApplicationController
     #then associate it to the current user
     @review.user = @current_user
     # we want to check  if the model can be saved 
-        if @review.save
+        if @review.valid?
+            @review.save
             flash[:success] = "Your review has been posted"
             redirect_to reviews_path
         else
+            flash.now[:messages] = @review.errors.full_messages 
             render "new"
         end
     end 

@@ -1,18 +1,17 @@
 ActiveAdmin.register Review do
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # Uncomment all parameters which should be permitted for assignment
-  #
   permit_params :title, :body, :score, :restaurant, :price, :cuisine, :phone_number, :ambiance, :latitude, :longitude, :address, :user_id, :photo, :is_featured
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:title, :body, :score, :restaurant, :price, :cuisine, :phone_number, :ambiance, :latitude, :longitude, :address, :user_id, :photo]
-  #   permitted << :other if params[:action] == 'create' && current_user.admin?
-  #   permitted
-  # end
-  
+  index do 
+    selectable_column
+    index_column
+    column "Image" do |review|
+      image_tag review.photo.url, width: "50" unless review.photo.url.nil?
+    end
+    column :title
+    column :score
+    column :price
+    column :cuisine
+    column :created_at
+    column :is_featured
+    actions
+  end
 end

@@ -16,14 +16,17 @@
                 <span><i class="fa fa-diamond" aria-hidden="true"></i></span>
                 <h2>Highly rated reviews</h2>
             </div>
-            <%= render partial: "review", collection: @highly_rated_reviews %>
+            <%= render partial: "review", collection: @highly_rated_reviews.order(score: :desc) %>
+            <div class="digg_pagination">
+                <%= will_paginate @highly_rated_reviews, :container => false %>
+            </div>
         </div>
         <div class="featured">
             <div class="title">
                 <span><i class="fa fa-bullseye" aria-hidden="true"></i></span>
                 <h2>Featured reviews</h2>
             </div>
-            <%= render partial: "review", collection: @featured_reviews %>
+            <%= render partial: "review", collection: @featured_reviews.limit(3) %>
         </div>
     </div>
 </div>
