@@ -24,8 +24,8 @@
 <% if @reviews.present? %>
     <div class="sort">
         <span>Score</span>
-        <%= active_link_to (raw("<i class='fa fa-sort-amount-asc' aria-hidden='true'></i>")), reviews_path(price: @price, cuisine: @cuisine, location: @location), active: {:sort => "score ASC"} %>
-        <%= active_link_to (raw("<i class='fa fa-sort-amount-desc' aria-hidden='true'></i>")), reviews_path(price: @price, cuisine: @cuisine, location: @location), active: {:sort => "score DESC"} %>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-asc' aria-hidden='true'></i>")), reviews_path(score_asc: true, price: @price, cuisine: @cuisine, location: @location), active: {score_asc: true} %>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-desc' aria-hidden='true'></i>")), reviews_path(score_desc: true, price: @price, cuisine: @cuisine, location: @location), active: {score_desc: true} %>
     </div>
     <% @reviews.order(created_at: :desc).each do |review| %>
         <div class="review">

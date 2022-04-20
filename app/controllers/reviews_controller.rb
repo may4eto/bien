@@ -7,8 +7,10 @@ class ReviewsController < ApplicationController
         @price = params[:price]
         @cuisine = params[:cuisine]
         @location = params[:location]
+        @score_asc = params[:score_asc]
+        @score_desc = params[:score_desc]
         # @reviews = Review.all 
-        @reviews = Review.paginate(:page => params[:page], :per_page => 5).order(params[:sort])
+        @reviews = Review.paginate(:page => params[:page], :per_page => 5)
         if @price.present?
             @reviews = @reviews.where(price: @price)
         end
@@ -17,6 +19,12 @@ class ReviewsController < ApplicationController
         end
         if @location.present?
             @reviews = @reviews.near(@location)
+        end
+        if @score_asc.present?
+            @reviews = @reviews.order(score: :asc)
+        end
+        if @score_desc.present?
+            @reviews = @reviews.order(score: :desc)
         end
     end
     def new
@@ -80,5 +88,4 @@ class ReviewsController < ApplicationController
     def form_params
         params.require(:review).permit(:title, :restaurant, :body, :score, :ambiance, :price, :cuisine, :address, :photo)
     end 
-
 end

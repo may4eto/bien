@@ -86,7 +86,7 @@ div.review {
   display: flex;
   align-items: flex-start;
   img {
-    margin-right: 24px;
+    margin-right: 16px;
     width: 100px;
     height: 100px;
   }
@@ -136,7 +136,7 @@ div.edit-review {
     a {
       margin-left: 4px;
       color: $black;
-      .active {
+      &.active {
         color: $green;
       }
     }

@@ -42,11 +42,15 @@
   .review {
     display: flex;
     align-items: center;
+    img {
+      margin-right: 16px;
+    }
   }
 }
 .home-reviews {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
   .title {
     display: flex;
     flex-direction: row;
@@ -54,12 +58,6 @@
     span {
       margin-right: 8px;
     }
-  }
-}
-
-@media (max-width: 930px) {
-  .home-reviews .review img {
-    margin-right: 16px;
   }
 }
 
