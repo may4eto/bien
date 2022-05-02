@@ -1,0 +1,201 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../stylesheets/global.scss";
+@import "../stylesheets/pagination.scss";
+//@import "../stylesheets/application.scss";
+
+h1 {
+  line-height: 1.2;
+  margin: 24px 0 0 0;
+}
+
+p.author {
+  font-style: italic;
+  margin-top: 8px;
+}
+
+section.review,
+div.review {
+  margin-bottom: 24px;
+}
+
+div.review-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 100vw;
+  margin: 0px 0 24px 0;
+  border: solid 2px $green;
+  padding: 16px;
+  figure.restaurant {
+    width: 60%;
+    margin: 0px;
+    img {
+      display: block;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  div.restaurant {
+    width: 40%;
+    align-self: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 0 0 24px;
+    div.restaurant-info {
+      display: block;
+      div.restaurant-title {
+        display: flex;
+        align-items: center;
+        h2 {
+          margin: 0 16px 0 0;
+        }
+        span.bookmarks {
+          display: inline;
+          color: $green;
+        }
+      }
+      span.address {
+        color: $grey;
+        font-style: italic;
+        display: inline-block;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+div.button {
+  background-color: $orange;
+  padding: 8px 16px;
+  width: fit-content;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  &.bookmark {
+    margin: 16px 0;
+  }
+}
+
+div.review {
+  display: flex;
+  align-items: flex-start;
+  img {
+    margin-right: 16px;
+    width: 100px;
+    height: 100px;
+  }
+  h2 {
+    margin: 0px;
+  }
+  a {
+    text-decoration: none;
+  }
+}
+
+div.new-review,
+div.edit-review {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  form input,
+  form textarea {
+    margin-bottom: 16px;
+    width: 600px;
+  }
+  form select {
+    margin-bottom: 16px;
+  }
+  form input.btn {
+    margin-top: 8px;
+  }
+}
+
+.results {
+  position: relative;
+  .sort {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    span,
+    a,
+    i {
+      font-size: 14px;
+      display: inline-block;
+    }
+    a {
+      margin-left: 4px;
+      color: $black;
+      &.active {
+        color: $green;
+      }
+    }
+    span {
+      margin-right: 4px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  header,
+  main,
+  footer {
+    padding: 10px 20px;
+  }
+  .results {
+    position: static;
+    .sort {
+      position: static;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+      span,
+      a {
+        font-size: 1rem;
+        line-height: 1;
+      }
+      a {
+        margin: 0 8px 0 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 460px) {
+  div.review-header {
+    flex-direction: column;
+    figure.restaurant {
+      width: 100%;
+    }
+    div.restaurant {
+      padding-left: 0;
+      width: 100% !important;
+    }
+    div.restaurant-title {
+      margin-top: 18px;
+    }
+    div.restaurant-info span.address {
+      margin-bottom: 8px !important;
+    }
+  }
+  div.new-review,
+  div.edit-review {
+    form {
+      width: 100%;
+      input,
+      textarea {
+        width: 100% !important;
+      }
+    }
+  }
+}

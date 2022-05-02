@@ -1,0 +1,10 @@
+<% content_for :page_title, "Log in - " %>
+<div class="log-in">
+    <h1>Log in</h1>
+    <%= simple_form_for :session, url: session_path do |f| %>
+        <%= f.input :username %>
+        <%= f.input :password %>
+        <%= f.button :submit, "Log in" %>
+    <% end %>
+    <p>New user? <%= link_to "Sign up", new_user_path %></p>
+</div>

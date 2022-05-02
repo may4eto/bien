@@ -1,0 +1,12 @@
+<% content_for :page_title, "New user - " %>
+<div class="sign-up">
+    <h1>Sign up</h1>
+    <%= simple_form_for @user do |f| %>
+        <%= f.input :real_name, label: "Name" %>
+        <%= f.input :username, error: false %>
+        <%= f.input :email, error: false %>
+        <%= f.input :password, error: false %>
+        <%= f.input :password_confirmation, label: "Confirm password" %>
+        <%= f.button :submit, "Sign up" %>
+    <% end %>
+</div>

@@ -1,0 +1,101 @@
+<% content_for :page_title, @user.real_name + "'s profile - " %>
+<div class="user">
+    <div class="header">
+        <div class="title">
+            <h1>
+            <% if @user === @current_user %>
+                My profile
+            <% else %>
+                <% if @user.real_name.present? %>
+                    <%= @user.real_name %>'s profile
+                <% else %>
+                    <%= @user.username %>'s profile
+                <% end %>
+            <% end %>
+            </h1>
+            <span>Member since <%= @user.created_at.strftime("%B %Y") %></span>
+        </div>
+        <p>
+            <span><%= pluralize @user.reviews.count, "review" %></span><br>
+            <span><%= pluralize @user.bookmarks.count, "bookmarked review" %></span><br>
+            <span><%= pluralize @user.comments.count, "comment" %></span><br>
+        </p>
+        <% if @user === @current_user %>
+        <div class="button">
+            <%= link_to "Edit account", edit_account_path %>
+        </div>
+        <% end %>
+    </div>
+    <div class="section reviews">
+        <h2>
+        <% if @user === @current_user %>
+            My reviews
+        <% else %>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s reviews
+            <% else %>
+                <%= @user.username %>'s reviews
+            <% end %>
+        <% end %>
+        </h2>
+        <% if @user.reviews.present? %>
+            <% @user.reviews.each do |review| %>
+                <div class="review">
+                    <%= image_tag review.photo_url :thumb %>
+                    <%= link_to review_path(review) do %>
+                        <h3><%= review.title %></h3>
+                        <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
+                    <% end %>
+                </div>
+            <% end %>
+        <% else %>
+            <p>No reviews yet</p>
+        <% end %>
+    </div>
+    <div class=" section bookmarks">
+        <h2>
+        <% if @user === @current_user %>
+            My bookmarks
+        <% else %>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s bookmarked reviews
+            <% else %>
+                <%= @user.username %>'s bookmarked reviews
+            <% end %>
+        <% end %>
+        </h2>
+        <% if @user.bookmarks.present? %>
+            <% @user.bookmarks.each do |bookmark| %>
+                <div class="review">
+                    <%= image_tag bookmark.review.photo_url :thumb %>
+                    <%= link_to bookmark.review do %>
+                        <h3><%= bookmark.review.title %></h3>
+                        <p><%= bookmark.review.restaurant %> - <%= pluralize bookmark.review.comments.count, "comment" %></p>
+                    <% end %>
+                </div>
+            <% end %>
+        <% else %>
+            <p>No bookmarks yet</p>        
+        <% end %>
+    </div>
+    <div class=" section comments">
+        <h2>
+        <% if @user === @current_user %>
+            My comments
+        <% else %>
+            <% if @user.real_name.present? %>
+                <%= @user.real_name %>'s comments
+            <% else %>
+                <%= @user.username %>'s comments
+            <% end %>
+        <% end %>
+        </h2>
+        <% if @user.comments.present? %>
+            <% @user.comments.each do |comment| %>
+                <p>"<%= comment.body %>" - <%= link_to comment.review.title, comment.review %></p>
+            <% end %>
+        <% else %>
+            <p>No comments yet</p>    
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="page home">
+    <div class="head">
+        <figure class="content-image">
+            <%= image_tag @content.image_url %>
+        </figure>
+        <div class="content">
+                <h1><%= @content.body %></h1>
+                <div class="button">
+                    <%= link_to "Browse reviews", reviews_path %>
+                </div>
+        </div>
+    </div>
+    <div class="home-reviews">
+        <div class="highly-rated">
+            <div class="title">
+                <span><i class="fa fa-diamond" aria-hidden="true"></i></span>
+                <h2>Highly rated reviews</h2>
+            </div>
+            <%= render partial: "review", collection: @highly_rated_reviews.order(score: :desc) %>
+            <div class="digg_pagination">
+                <%= will_paginate @highly_rated_reviews, :container => false %>
+            </div>
+        </div>
+        <div class="featured">
+            <div class="title">
+                <span><i class="fa fa-bullseye" aria-hidden="true"></i></span>
+                <h2>Featured reviews</h2>
+            </div>
+            <%= render partial: "review", collection: @featured_reviews.limit(3) %>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "../stylesheets/global.scss";
+@import "../stylesheets/reviews.scss";
+
+section.comments {
+  margin-bottom: 24px;
+  h3 {
+    margin-bottom: 0;
+  }
+  p {
+    margin: 20px 0 8px 0;
+  }
+}
+
+.add-comment {
+  form textarea {
+    width: 600px;
+  }
+  input.btn {
+    margin-top: 16px;
+  }
+}
+
+.comment {
+  border-bottom: solid 2px $cream;
+  font-size: 14px;
+  padding-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  span.posted {
+    font-size: 14px;
+    color: $green;
+    a {
+      font-size: 14px;
+    }
+  }
+}
+
+div.comment-actions a {
+  margin-left: 8px;
+}
+
+.hide {
+  display: none;
+}
+
+@media (max-width: 460px) {
+  .add-comment form textarea,
+  .add-comment form input {
+    width: 100%;
+  }
+}

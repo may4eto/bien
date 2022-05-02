@@ -1,0 +1,50 @@
+@import "../stylesheets/global.scss";
+
+.digg_pagination {
+  background: white;
+  cursor: default;
+  /* self-clearing method: */
+  a,
+  span,
+  em {
+    padding: 0.2em 0.5em;
+    display: block;
+    float: left;
+    margin-right: 1px;
+  }
+  .disabled {
+    color: $grey;
+    border: 1px solid $grey;
+  }
+  .current {
+    font-style: normal;
+    font-weight: bold;
+    background: $green;
+    color: white;
+    border: 1px solid $green;
+  }
+  a {
+    text-decoration: none;
+    color: $green;
+    border: 1px solid $green;
+    &:hover,
+    &:focus {
+      color: $black;
+      border-color: $black;
+    }
+  }
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+* html .digg_pagination {
+  height: 1%;
+}
+*:first-child + html .digg_pagination {
+  overflow: hidden;
+}

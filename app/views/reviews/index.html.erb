@@ -1,0 +1,49 @@
+<% content_for :page_title, "Reviews - " %>
+<nav class="filters">
+    <%= active_link_to "All reviews", reviews_path, active: {price: nil, cuisine: nil, location: nil} %>
+    <div class="price">
+        <%= active_link_to "$", reviews_path(price: 1, cuisine: @cuisine, location: @location), active: {price: 1} %>
+        <%= active_link_to "$$", reviews_path(price: 2, cuisine: @cuisine, location: @location), active: {price: 2} %>
+        <%= active_link_to "$$$", reviews_path(price: 3, cuisine: @cuisine, location: @location), active: {price: 3} %>
+        <%= active_link_to "$$$$", reviews_path(price: 4, cuisine: @cuisine, location: @location), active: {price: 4} %>
+    </div>
+    <div class="cuisine">
+        <%= active_link_to "Brunch", reviews_path(cuisine: "Brunch", price: @price, location: @location), active: {cuisine: "Brunch"} %>
+        <%= active_link_to "Burgers", reviews_path(cuisine: "Burgers", price: @price, location: @location), active: {cuisine: "Burgers"} %>
+        <%= active_link_to "Fusion", reviews_path(cuisine: "Fusion", price: @price, location: @location), active: {cuisine: "Fusion"} %>
+        <%= active_link_to "Italian", reviews_path(cuisine: "Italian", price: @price, location: @location), active: {cuisine: "Italian"} %>
+        <%= active_link_to "Oriental", reviews_path(cuisine: "Oriental", price: @price, location: @location), active: {cuisine: "Oriental"} %>
+    </div>
+    <form action="/reviews" class="search">
+        <input type="text" name="location" placeholder="Search location..." value="<%= @location %>">
+        <input type="hidden" name="price" value="<%= @price %>">
+        <input type="hidden" name="cuisine" value="<%= @cuisine %>">
+        <button class="button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </form>
+</nav>
+<div class="results">
+<% if @reviews.present? %>
+    <div class="sort">
+        <span>Score</span>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-asc' aria-hidden='true'></i>")), reviews_path(score_asc: true, price: @price, cuisine: @cuisine, location: @location), active: {score_asc: true} %>
+        <%= active_link_to (raw("<i class='fa fa-sort-amount-desc' aria-hidden='true'></i>")), reviews_path(score_desc: true, price: @price, cuisine: @cuisine, location: @location), active: {score_desc: true} %>
+    </div>
+    <% @reviews.order(created_at: :desc).each do |review| %>
+        <div class="review">
+            <%= image_tag review.photo_url :thumb %>
+            <%= link_to review_path(review) do %>
+                <h2>
+                    <%= review.title %>
+                </h2>
+                <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
+            <% end %>
+        </div>
+    <% end %>
+<% else %>
+    <p>No reviews found.</p>
+<% end %>
+</div>
+
+<div class="digg_pagination">
+    <%= will_paginate @reviews, :container => false %>
+</div>
