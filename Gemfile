@@ -86,7 +86,8 @@ gem 'activeadmin'
 gem 'stimulus-rails'
 
 # pagination
-
 gem 'will_paginate', '~>3.0'
+
+gem 'figaro'
 
 ruby "2.7.5"
