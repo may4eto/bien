@@ -41,7 +41,7 @@
         <% if @user.reviews.present? %>
             <% @user.reviews.each do |review| %>
                 <div class="review">
-                    <%= image_tag review.photo_url :thumb %>
+                    <%= image_tag review.photo_url :thumb, :width => "100px", :height => "100px" %>
                     <%= link_to review_path(review) do %>
                         <h3><%= review.title %></h3>
                         <p><%= review.restaurant %> - <%= pluralize review.comments.count, "comment" %></p>
@@ -67,7 +67,7 @@
         <% if @user.bookmarks.present? %>
             <% @user.bookmarks.each do |bookmark| %>
                 <div class="review">
-                    <%= image_tag bookmark.review.photo_url :thumb %>
+                    <%= image_tag bookmark.review.photo_url :thumb, :width => "100px", :height => "100px" %>
                     <%= link_to bookmark.review do %>
                         <h3><%= bookmark.review.title %></h3>
                         <p><%= bookmark.review.restaurant %> - <%= pluralize bookmark.review.comments.count, "comment" %></p>

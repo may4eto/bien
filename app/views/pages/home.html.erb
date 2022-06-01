@@ -1,7 +1,7 @@
 <div class="page home">
     <div class="head">
         <figure class="content-image">
-            <%= image_tag @content.image_url %>
+            <%= image_tag @content.image_url, :width => "100%", :height => "auto", :alt => "Picture of various tasty looking dishes on a table" %>
         </figure>
         <div class="content">
                 <h1><%= @content.body %></h1>

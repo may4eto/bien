@@ -1,6 +1,6 @@
 <%= link_to(review) do %>
     <div class="review">
-        <%= image_tag review.photo_url :thumb %>
+        <%= image_tag review.photo_url :thumb, :width => "100px", :height => "100px" %>
         <p><%= review.title %> - <%= review.score %>/10</p>
     </div>
 <% end %>

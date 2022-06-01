@@ -30,7 +30,7 @@
     </div>
     <% @reviews.order(created_at: :desc).each do |review| %>
         <div class="review">
-            <%= image_tag review.photo_url :thumb %>
+            <%= image_tag review.photo_url :thumb, :width => "100px", :height => "100px"%>
             <%= link_to review_path(review) do %>
                 <h2>
                     <%= review.title %>

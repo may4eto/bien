@@ -1,7 +1,7 @@
 <% content_for :page_title, "About - " %>
 <div class="page">
     <figure class="content-image">
-        <%= image_tag @content.image_url %>
+        <%= image_tag @content.image_url, :width => "100%", :height => "auto" %>
     </figure>
     <div class="page-content">
         <h1><%= @content.title %></h1>

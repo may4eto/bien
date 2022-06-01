@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title><%= content_for :page_title %>Bien Reviews</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -14,7 +14,7 @@
     <header>
       <h1>
         <%= link_to root_path do %>
-          <%= image_tag "bien-logo.svg" %>
+          <%= image_tag "bien-logo.svg", :width => "80px", :height => "auto", :alt => "Bien Logo" %>
         <% end %>
       </h1>
       <nav>
@@ -42,7 +42,7 @@
             </div>
           <% end %>
       </nav>
-      <button><i class="fa fa-bars" aria-hidden="true" data-turbolinks-permanent></i></button>
+      <button><i class="fa fa-bars" aria-hidden="true" aria-label="Hamburger menu" data-turbolinks-permanent></i></button>
     </header>
     <% if flash[:success].present? %>
       <div class="success">
